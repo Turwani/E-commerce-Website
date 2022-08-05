@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BASKETBALL FOR SALE</title>
+    <link rel="stylesheet" href="./CSS/home.css">
+    <script src="./js/index.js" async></script>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <img src="img/logo.png" class="brand-logo" alt="">
+        <p id="store-name">Sasory Store</p>
+        <div class="nav-items">
+            <div class="search">
+                <input type="text" class="search-box" placeholder="search brand, product">
+                <button class="search-btn">search</button>
+            </div>
+            <a href="#"><img src="img/user.png" alt=""></a>
+        </div>
+    </div>
+    <!-- hero section -->
+    <header class="hero-section">
+        <div class="content">
+            <img src="img/light-logo.png" class="logo" alt="">
+            <p class="sub-heading">best basketball collection of all time</p>
+        </div>
+    </header>
+    <!-- Product section -->
+    <section class="product">
+        <h2 class="product-category">FEATURED PRODUCTS</h2>
+        <div class="product-container">
+            <% items.forEach(function(item){ %>
+
+                <div class="product-card" data-item-id="<%= item._id %>">
+                    <div class="product-image">
+                        <img src="img/<%= item.imageName %>" class="product-thumb" alt="">
+                        <button class="card-btn">add to whislist</button>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-brand">
+                            <%= item.name %>
+                        </h2>
+                        <span class="price">₹<%= item.price / 100 %></span><span class="actual-price">₹<%= item.aprice /
+                                100 %></span>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+    </section>
+    <!-- shoppinf=g cart container -->
+    <div id="heading-cart">
+        <h1>Shopping Cart</h1>
+    </div>
+    <br>
+    <div class="cart-container">
+    </div>
+    <form action="/checkout" method="post">
+        <div class="payment-total" class="grid-items">
+            <div>Total Price:</div>
+            <div class="final-price" name="finalAmount" value="">₹0</div>
+            <br>
+            <hr>
+            <button class="proceed-btn">Proceed to Checkout</button>
+    </form>
+    </div>
+    <footer>
+        Copyright &copy; www.konohastore.com. All rigths reserved!
+    </footer>
+</body>
+
+</html>
